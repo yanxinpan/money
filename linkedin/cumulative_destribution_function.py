@@ -3,24 +3,22 @@ class CDF:
         self.values = values
 
     def f(self, x):
-        #  use binary search to find the largest value that is not greater than x
+        #  use binary search to find the idx of the smallest value that is greater than x.
+        #  Assuming the idx we found is "i", then there are i elements smaller or equal to x since idx starting from 0.
+        #  The cdf of x is i/(the total num of elements)
         left = 0
         right = len(self.values)
 
-        while left + 1 < right:
+        # search space [0, len(self.values))
+        while left < right:
             mid = (left + right) // 2
 
             if self.values[mid] > x:
-                right = mid - 1
+                right = mid
             else:
-                left = mid
+                left = mid + 1
 
-        if left == 0 and self.values[left] > x:
-            return 0
-        if right != len(self.values) and self.values[right] <= x:
-            return (right + 1.0) / len(self.values)
-
-        return (left + 1.0)/len(self.values)
+        return (left * 1.0)/len(self.values)
 
 
 def test_cdf():

@@ -34,7 +34,7 @@ class KMeans:
             for j in range(k):
                 cluster_data = data[np.where(labels == j)]
                 if cluster_data.shape[0] == 0:
-                    # When there is no sample in the cluster. Update the centroid with a random sample.
+                    # When there is no sample belong to this cluster. Update the centroid with a random sample.
                     next_centroids[j] = data[np.random.randint(0, n, 1)]
                 else:
                     next_centroids[j] = np.mean(cluster_data, axis=0)
