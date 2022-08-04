@@ -1,5 +1,5 @@
 from union_find import UnionFind
-
+import heapq
 """
 A spanning tree is a subgraph of an undirected graph where all vertices are connected
 with the minimum numbers of edges.
@@ -41,3 +41,33 @@ def kruskal_algorithm(n, edges):
             ans.append(e)
             if len(ans) == n - 1:
                 return ans
+
+
+def prim_algorithm(n, edges):
+    """
+       Time Complexity: O(E⋅logE)
+       Space Complexity: O(V)
+
+       :param n: int, number of vertices.
+       :param edges: List[List[ weight, vertex_0, vertex_1,]]
+       :return: List[List[vertex_0, vertex_1, weight]], a subset of edges which forms a minimum spanning tree.
+       """
+    edges_dict = {}
+    for n1, n2, w in edges:
+        edges_dict[n1] = edges_dict.get(n1, []) + [(n2, w)]
+    heap = []
+    heapq.heapify(heap)  # use weight in heapq.
+    for n2, w in edges_dict[0]:
+        heapq.heappush(heap, [w, n2])
+
+    visited = set(0)
+    used_edges = 0
+    while used_edges < n:
+        w, n1 = heapq.heappop(heap)
+        if n1 not in visited:
+            visited.add(n1)
+            for n2, w in edges_dict[n1]:
+                heapq.heappush([w, n2])
+                used_edges += 1
+    
+
