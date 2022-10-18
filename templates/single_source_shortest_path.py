@@ -5,7 +5,6 @@ use Dijkstra algorithm (non-negative weight) and use Bellman Ford elsewhere.
 To find the shortest path in an unweighted graph, use BFS.
 """
 
-
 def dijkstra_algorithm(n, k, graph):
     """
     Find the shortest path in a non-negative weight graph.
