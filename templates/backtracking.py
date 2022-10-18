@@ -23,6 +23,7 @@ def backtracking(candidate):
         output(candidate)
         return
     for n in candidate.next:
-        place(n)
-        backtracking(n)
-        remove(n)
+        if is_valid(n):
+            place(n)
+            backtracking(n)
+            remove(n)

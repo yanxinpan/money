@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def bfs(root):
     # keep status or path in queue if needed
     # deque is a doubly linked list
