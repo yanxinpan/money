@@ -1,0 +1,6 @@
+mapper
+reducer
+partition and shuffle: After the map tasks have completed, the node may still be performing more map tasks each.
+But they also begin exchanging the intermediate outputs from the map tasks to where they are required by reducers.
+This process of moving map outputs to the reducers is known as shuffling. A different subset of intermediate key
+space is assigned to each reducer node. These subsets(known as partitions) are the inputs to the reduce task.

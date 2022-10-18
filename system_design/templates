@@ -1,0 +1,37 @@
+1. read pattern
+2. write pattern
+3. Use case/constrains:
+    1. more read than write?
+    2. support updates?
+    3. traffic patterns?
+    4. computational cost
+    5. network bandwidth
+4. Solve bottlenecks
+    1. sharding/partition
+    2. replication
+    3. dispatcher node
+
+
+1. System overview - start with simple design, but with full functionality
+    a. What functionalities the system provides?
+    b. Requests/Responses
+    c. What information/data should be stored in the system?
+    d. Data model
+    e. How is the data/information queried/updated?
+
+2. Possible bottlenecks of the simple design
+    a. Efficiency - can things be paralleled, cached, etc.
+    b. Reliability - what if things fail
+    c. Scalability - larger datasets or user base, more requests etc.
+    d. Explain trade-offs
+
+Collect common patterns
+1. Typical way to dispatch job to multiple works:
+    a. partition(hash/range/...)
+    b. batching
+2. Hashtable, Distributed hash table
+3. Push/Pull model
+4. Typical ways to handle failures
+    a. Server failover - master/slave
+    b. Data durability - replication
+5. Caching

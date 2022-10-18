@@ -1,0 +1,18 @@
+HDFS: Hadoop Distributed File System.
+
+Features:
+Highly fault-tolerant
+deploy in low-cost machine (commodity hardware)
+design for batch process
+
+NameNode:
+manage the metadate(data about data) and path to data etc.
+Master and slave architecture. Use logs to sync.
+
+DataNode:
+Store the files.
+
+Block:
+Files are saved into blocks. Blocks has the same size limit, eg. 128m.
+Files will be spilt into different blocks if it exceeds the limit.
+Block is not shared among different files. Each block is independently replicated at multiple datanode.
